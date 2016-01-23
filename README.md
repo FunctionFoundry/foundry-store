@@ -25,9 +25,9 @@ $ npm install --save fluxury-general-store
 Require into your project.
 
 ```js
-var store = require('fluxury-general-store') // Node.js / browserify / webpack
+var createStore = require('fluxury-general-store') // Node.js / browserify / webpack
 // or
-import store from 'fluxury-general-store' // ES6 syntax
+import createStore from 'fluxury-general-store' // ES6 syntax
 ```
 
 Option B) Install from dist folder.
@@ -37,4 +37,16 @@ Option B) Install from dist folder.
   <head>
     <script src="/path/to/general-store.js"><script>
     ...
+```
+
+## Basic Usage
+
+```js
+var store = createStore()
+store.set({ key: 'value' })
+store.get('key')
+
+store.set({ investments: [{ name: 'FundA' }, { name: 'FundB' }]})
+store.setFilter({ table: 'investments', op: 'eq', value: 'FundA'})
+store.get('investments') // => [{ name: 'FundA' }]
 ```

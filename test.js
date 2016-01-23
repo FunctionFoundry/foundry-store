@@ -4,7 +4,7 @@ test('GeneralStore', function(t) {
 
   t.plan(10)
 
-  var buildGeneralStore = require('./index')
+  var buildGeneralStore = require('./lib/index')
 
   // For when switch cases seem like overkill.
   var store = buildGeneralStore({

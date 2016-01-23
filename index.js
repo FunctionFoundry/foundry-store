@@ -75,9 +75,7 @@ function GeneralStore(methods={}, actions={}) {
           orderBy = state.orderBy
           .filter( n => n.table === param)
           .reduce((a, b) => {
-
             return a.concat([b.fieldName, !b.asc])
-
           }, [])
 
           return SORT(
