@@ -2,9 +2,9 @@ var test = require('tape');
 
 test('GeneralStore', function(t) {
 
-  t.plan(10)
+  t.plan(11)
 
-  var buildGeneralStore = require('./lib/index')
+  var buildGeneralStore = require('./index')
 
   // For when switch cases seem like overkill.
   var store = buildGeneralStore({
@@ -66,5 +66,11 @@ test('GeneralStore', function(t) {
   }])
 
   t.deepEqual( store.get('states'), ['WA', 'OR']  );
+
+  store.clearFilters()
+
+  store.clearOrderBy()
+
+  t.deepEqual( store.get('states'), ['CA', 'OR', 'WA']  );
 
 })

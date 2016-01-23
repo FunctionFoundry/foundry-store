@@ -33,7 +33,13 @@ function GeneralStore(methods={}, actions={}) {
 
       },
       setFilters: (state, filters) => Object.assign({}, state, {filters}),
-      setOrderBy: (state, orderBy) => Object.assign({}, state, {orderBy})
+      setOrderBy: (state, orderBy) => Object.assign({}, state, {orderBy}),
+      clearFilters: (state, spec) => Object.assign({}, state,
+        {filters: state.filters.filter(n => spec && n.table === spec.table ) }
+      ),
+      clearOrderBy: (state, spec) => Object.assign({}, state,
+        {orderBy: state.orderBy.filter(n => spec && n.table === spec.table ) }
+      )
     },
     Object.assign(
       {},
