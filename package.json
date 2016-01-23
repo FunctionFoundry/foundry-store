@@ -1,0 +1,29 @@
+{
+  "name": "fluxury-general-store",
+  "version": "0.1.0",
+  "description": "A general purpose flux store for use with React.js",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "babel index.js -o lib/index.js && browserify -igv GeneralStore -g uglifyify ./lib/index.js > dist/general-store.js",
+    "test": "node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fluxury/general-store.git"
+  },
+  "keywords": [
+    "Flux",
+    "Fluxury",
+    "React.js"
+  ],
+  "author": "Peter W Moresi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fluxury/general-store/issues"
+  },
+  "homepage": "https://github.com/fluxury/general-store#readme",
+  "dependencies": {
+    "fluxury": "^0.7.1",
+    "functionfoundry": "^0.7.3"
+  }
+}
