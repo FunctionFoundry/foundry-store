@@ -39,6 +39,11 @@ store.set({ key: 'value' })
 store.get('key')
 
 store.set({ investments: [{ name: 'FundA' }, { name: 'FundB' }]})
-store.setFilter({ table: 'investments', op: 'eq', value: 'FundA'})
+store.setFilter({
+  table: 'investments',
+  field: 'name',
+  op: 'eq',
+  value: 'FundA'}
+)
 store.get('investments') // => [{ name: 'FundA' }]
 ```
