@@ -15,9 +15,9 @@ $ npm install --save foundry-store
 Require into your project.
 
 ```js
-var createStore = require('fluxury-general-store') // Node.js / browserify / webpack
+var createStore = require('foundry-store') // Node.js / browserify / webpack
 // or
-import createStore from 'fluxury-general-store' // ES6 syntax
+import createStore from 'foundry-store' // ES6 syntax
 ```
 
 Option B) Install from dist folder.

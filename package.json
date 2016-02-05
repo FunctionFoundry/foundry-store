@@ -1,7 +1,7 @@
 {
-  "name": "fluxury-general-store",
+  "name": "foundry-store",
   "version": "0.1.0",
-  "description": "A general purpose flux store for use with React.js",
+  "description": "State management built on FunctionFoundry and Fluxury.",
   "main": "lib/index.js",
   "scripts": {
     "build": "babel index.js -o lib/index.js && browserify -igv GeneralStore -g uglifyify ./lib/index.js > dist/general-store.js",
