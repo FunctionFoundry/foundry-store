@@ -2,15 +2,15 @@ import {createStore, dispatch} from 'fluxury'
 import * as Box from 'functionfoundry'
 import {FILTER, SORT} from 'functionfoundry'
 
-function GeneralStore(methods={}, actions={}) {
+function FoundryStore( actions={}, fn={} ) {
   return createStore(
-    'GeneralStore',
+    'FoundryStore',
     {
-      data: {},    // { investments: [{ investmentType: 'Debt' }]}
-      filters: [], // [{ table: 'investments', field: 'investmentType', op: 'gt', value: ['typeA', 'typeB'] }]
-      orderBy: [], // [{ table: 'investments', field: 'investmentType', asc: true }]
+      data: {},
+      filters: [],
+      orderBy: [],
     },
-    {
+    Object.assign({}, actions, {
       set: (state, newData) => Object.assign(
         {},
         state,
@@ -32,7 +32,7 @@ function GeneralStore(methods={}, actions={}) {
         return Object.assign({}, state, { filters: filters })
 
       },
-      setFilters: (state, filters) => Object.assign({}, state, {filters}),
+      setFilters: (state, sheet, filter) => Object.assign({}, state, {filters}),
       setOrderBy: (state, orderBy) => Object.assign({}, state, {orderBy}),
       clearFilters: (state, spec) => Object.assign({}, state,
         {filters: state.filters.filter(n => spec && n.table === spec.table ) }
@@ -40,10 +40,10 @@ function GeneralStore(methods={}, actions={}) {
       clearOrderBy: (state, spec) => Object.assign({}, state,
         {orderBy: state.orderBy.filter(n => spec && n.table === spec.table ) }
       )
-    },
+    }),
     Object.assign(
       {},
-      methods,
+      fn,
       {
         all: (state) => state.data,
         get: (state, param) => {
@@ -94,4 +94,4 @@ function GeneralStore(methods={}, actions={}) {
   )
 }
 
-module.exports = GeneralStore
+module.exports = FoundryStore
