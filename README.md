@@ -37,13 +37,11 @@ store.set({ key: 'value' })
 store.get('key')
 
 store.set({ investments: [{ name: 'FundA' }, { name: 'FundB' }]})
-store.setFilter({
-  table: 'investments',
-  field: 'name',
-  op: 'eq',
-  value: 'FundA'}
-)
+store.filter('investments', 'EQ(name, "FundA")')
 store.get('investments') // => [{ name: 'FundA' }]
+store.filter('investments', 'OR(EQ(name, "FundA"), EQ(name, "FundB"))')
+store.sort('investments', 'name', 'desc')
+store.get('investments') // => [{ name: 'FundB' }, { name: 'FundA' }]
 ```
 
 ## Advanced Usage
