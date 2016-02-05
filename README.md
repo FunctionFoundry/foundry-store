@@ -1,6 +1,6 @@
-# foundry-store
+# foundrystore
 
-foundry-store is a general purpose state management built on FunctionFoundry and Fluxury.
+foundrystore is a general purpose state management built on FunctionFoundry and Fluxury.
 
 It manages an object tree which may be manipulated with a formula language.
 
@@ -9,15 +9,15 @@ It manages an object tree which may be manipulated with a formula language.
 Option A) Install from npm.
 
 ```sh
-$ npm install --save foundry-store
+$ npm install --save foundrystore
 ```
 
 Require into your project.
 
 ```js
-var createStore = require('foundry-store') // Node.js / browserify / webpack
+var createStore = require('foundrystore') // Node.js / browserify / webpack
 // or
-import createStore from 'foundry-store' // ES6 syntax
+import createStore from 'foundrystore' // ES6 syntax
 ```
 
 Option B) Install from dist folder.
@@ -25,7 +25,7 @@ Option B) Install from dist folder.
 ```HTML
 <html>
   <head>
-    <script src="/path/to/foundry-store.js"><script>
+    <script src="/path/to/foundrystore.js"><script>
     ...
 ```
 
