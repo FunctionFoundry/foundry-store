@@ -1,17 +1,15 @@
-# general-store
+# foundry-store
 
-general-store is a general purpose state management library based on Facebook's Flux architecture.
+foundry-store is a general purpose state management built on FunctionFoundry and Fluxury.
 
-Similar to flux it does not specify data fetching. This solution may be used with REST, SOAP or any other HTTP based protocol that your application demands. You may use XMLHTTPRequest, jQuery, fetch or any other mechanism that can asynchronously deliver data to a browser.
-
-It is built on top of fluxury and functionfoundry.
+This library does not specify data fetching. Use jQuery, XHR, fetch, websockets and other common solutions to access data.
 
 ## Getting Started
 
 Option A) Install from npm.
 
 ```sh
-$ npm install --save fluxury-general-store
+$ npm install --save foundry-store
 ```
 
 Require into your project.
