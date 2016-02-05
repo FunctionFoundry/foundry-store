@@ -2,7 +2,7 @@
 
 foundry-store is a general purpose state management built on FunctionFoundry and Fluxury.
 
-This library does not specify data fetching. Use jQuery, XHR, fetch, websockets and other common solutions to access data.
+It manages an object tree which may be manipulated with a formula language.
 
 ## Getting Started
 
@@ -25,9 +25,13 @@ Option B) Install from dist folder.
 ```HTML
 <html>
   <head>
-    <script src="/path/to/general-store.js"><script>
+    <script src="/path/to/foundry-store.js"><script>
     ...
 ```
+
+## Getting data
+
+This library does not specify data fetching. Use jQuery, XHR, fetch, websockets and other solution to access data.
 
 ## Basic Usage
 
