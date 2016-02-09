@@ -36,14 +36,14 @@ var store = createStore()
 store.set({ key: 'value' })
 store.get('key')
 
-store.set({ investments: [{ name: 'FundA' }, { name: 'FundB' }]})
+store.set({ todos: [{ c: true, m: 'Feels' }, { c: true, m: 'so good' }]}) // c is for checked and m for message
 store.setFilter({
-  table: 'investments',
-  field: 'name',
+  table: 'todos',
+  field: 'm',
   op: 'eq',
-  value: 'FundA'}
+  value: 'so good'}
 )
-store.get('investments') // => [{ name: 'FundA' }]
+store.get('todos') // => [{ m: 'so good' }]
 ```
 
 ## Advanced Usage
@@ -51,16 +51,19 @@ store.get('investments') // => [{ name: 'FundA' }]
 ```js
 // Add custom query methods
 var store = createStore({
-  getOpen: (state) => state.investments.filter(n => n.open).map(n => n.name)
-  getOpenCount: (state) => state.investments.filter(n => n.open).length
+  combineTodos: (state) => state.todos.map(d => d.m).join()
+  getCheckedCount: (state) => state.todos.filter(d => d.c).length
 }, {
-  setInvestments: (investments) => {
-    this.set({ investments: investments })
+  setTodos: (todos) => {
+    this.set({ todos: todos })
   }
 })
 
-store.setInvestments([{ name: 'FundA' open: false }, { name: 'FundB', open: true }])
 
-store.getOpen() // => ['FundB']
-store.getOpenCount() // => 1
+store.setTodos([{ c: true, m: 'Feels' }, { c: false, m: 'so good' }])
+// of store.set({ todos: [{ c: true, m: 'Feels' }, { c: false, m: 'so good' }] })
+
+
+store.combineTodos() // => 'Feels so good'
+store.getCheckedCount() // => 1
 ```
