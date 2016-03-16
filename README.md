@@ -36,6 +36,7 @@ This library does not specify data fetching. Use jQuery, XHR, fetch, websockets 
 ## Basic Usage
 
 ```js
+import {COMPILE as compile} from 'functionfoundry'
 var store = createStore()
 store.setState({ key: 'value' })
 store.get('key')
@@ -47,7 +48,22 @@ store.get('todos') // => [{ m: 'so good' }]
 store.get('todos!m') // => 'so good'
 
 // it can reference tabular data and supports calculated fields
-store.setState({ worksheet: [{ A1: 1, A2: 2, A3: '=A1+A2' }] })
+store.setState({
+  worksheet: {
+    A1: 1,
+    A2: 2,
+    A3: compile('=A1+A2')
+  }
+})
+
+// and it accepts tabular data
+store.setState([
+  [
+    [1],
+    [2],
+    [compile('=A1+A2')]
+  ]
+])
 ```
 
 ## Advanced Usage
