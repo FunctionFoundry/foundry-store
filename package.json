@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/fluxury/general-store#readme",
   "dependencies": {
-    "fluxury": "^0.7.1",
+    "fluxury": "^1.0.3",
     "functionfoundry": "^0.7.3"
   }
 }

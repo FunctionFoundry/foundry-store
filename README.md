@@ -41,13 +41,13 @@ store.setState({ key: 'value' })
 store.get('key')
 
 
-store.setState({ todos: [{ c: true, m: 'Feels' }, { c: true, m: 'so good' }]}) // c is for checked and m for message
+store.setState({ todos: { c: true, m: 'Feels' } }) // c is for checked and m for message
 store.setFilter('todos!m = "so good"')
 store.get('todos') // => [{ m: 'so good' }]
 store.get('todos!m') // => 'so good'
 
 // it can reference tabular data and supports calculated fields
-store.setState({ worksheet = [{ A1: 1, A2: 2, A3: '=A1+A2' }] })
+store.setState({ worksheet: [{ A1: 1, A2: 2, A3: '=A1+A2' }] })
 ```
 
 ## Advanced Usage
@@ -57,7 +57,7 @@ Crazy peanut butter sandwhich kunju ninja code.
 ```js
 // Add custom query methods
 var store = createStore({
-  combineTodos: (state) => state.todos.map(d => d.m).join()
+  combineTodos: (state) => state.todos.map(d => d.m).join(' ')
   getCheckedCount: (state) => state.todos.filter(d => d.c).length
 }, {
   setTodos: (todos) => {
@@ -65,10 +65,7 @@ var store = createStore({
   }
 })
 
-
-store.setTodos([{ c: true, m: 'Feels' }, { c: false, m: 'so good' }])
-// of store.setState({ todos: [{ c: true, m: 'Feels' }, { c: false, m: 'so good' }] })
-
+store.setTodos([{ c: true, m: 'Feels' }, { c: true, m: 'so good' }])
 
 store.combineTodos() // => 'Feels so good'
 store.getCheckedCount() // => 1
