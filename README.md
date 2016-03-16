@@ -1,8 +1,8 @@
-# foundrystore
+# foundrystore : UNSTABLE
 
 foundrystore is a general purpose state management built on FunctionFoundry and Fluxury.
 
-It manages an object tree which may be manipulated with a formula language.
+It is like a workbook in spreadsheet land; along with a similar formula language to manipulate it.
 
 ## Getting Started
 
@@ -37,21 +37,22 @@ This library does not specify data fetching. Use jQuery, XHR, fetch, websockets 
 
 ```js
 var store = createStore()
-store.set({ key: 'value' })
+store.setState({ key: 'value' })
 store.get('key')
 
 
-store.set({ todos: [{ c: true, m: 'Feels' }, { c: true, m: 'so good' }]}) // c is for checked and m for message
-store.setFilter({
-  table: 'todos',
-  field: 'm',
-  op: 'eq',
-  value: 'so good'}
-)
+store.setState({ todos: [{ c: true, m: 'Feels' }, { c: true, m: 'so good' }]}) // c is for checked and m for message
+store.setFilter('todos!m = "so good"')
 store.get('todos') // => [{ m: 'so good' }]
+store.get('todos!m') // => 'so good'
+
+// it can reference tabular data and supports calculated fields
+store.setState({ worksheet = [{ A1: 1, A2: 2, A3: '=A1+A2' }] })
 ```
 
 ## Advanced Usage
+
+Crazy peanut butter sandwhich kunju ninja code.
 
 ```js
 // Add custom query methods
@@ -60,13 +61,13 @@ var store = createStore({
   getCheckedCount: (state) => state.todos.filter(d => d.c).length
 }, {
   setTodos: (todos) => {
-    this.set({ todos: todos })
+    this.setState({ todos: todos })
   }
 })
 
 
 store.setTodos([{ c: true, m: 'Feels' }, { c: false, m: 'so good' }])
-// of store.set({ todos: [{ c: true, m: 'Feels' }, { c: false, m: 'so good' }] })
+// of store.setState({ todos: [{ c: true, m: 'Feels' }, { c: false, m: 'so good' }] })
 
 
 store.combineTodos() // => 'Feels so good'
