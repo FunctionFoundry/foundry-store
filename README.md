@@ -2,7 +2,7 @@
 
 foundrystore is a general purpose state management built on FunctionFoundry and Fluxury.
 
-It is like a workbook in spreadsheet land; along with a similar formula language to manipulate it.
+It is similar to a Workbook in spreadsheet land; including a formula language.
 
 ## Getting Started
 
@@ -42,12 +42,12 @@ store.setState({ key: 'value' })
 store.get('key')
 
 
-store.setState({ todos: { c: true, m: 'Feels' } }) // c is for checked and m for message
-store.setFilter('todos!m = "so good"')
-store.get('todos') // => [{ m: 'so good' }]
-store.get('todos!m') // => 'so good'
+store.setState({ todos: { checked: true, message: 'so good' } })
+store.setFilter('todos!message = "so good"')
+store.get('todos') // => { checked: true, message: 'so good' }
+store.get('todos!checked') // => true
 
-// it can reference tabular data and supports calculated fields
+// it supports worksheet calculations
 store.setState({
   worksheet: {
     A1: 1,
@@ -56,14 +56,14 @@ store.setState({
   }
 })
 
-// and it accepts tabular data
-store.setState([
+// and tabular data
+store.setState(
   [
     [1],
     [2],
     [compile('=A1+A2')]
   ]
-])
+)
 ```
 
 ## Advanced Usage

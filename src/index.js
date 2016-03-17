@@ -11,7 +11,7 @@ function FoundryStore( actions={}, fn={} ) {
       orderBy: [],
     },
     Object.assign({}, actions, {
-      set: (state, newData) => Object.assign(
+      setState: (state, newData) => Object.assign(
         {},
         state,
         { data: Object.assign({}, state.data, newData)}
