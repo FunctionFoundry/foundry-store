@@ -68,7 +68,7 @@ store.setState(
 
 ## Advanced Usage
 
-Crazy peanut butter sandwhich kunju ninja code.
+Crazy peanut butter sandwich kunju ninja code.
 
 ```js
 // Add custom query methods
